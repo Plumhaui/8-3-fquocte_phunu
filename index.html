@@ -2,6 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Chúc Mừng 8/3</title>
 
 <style>
@@ -17,8 +20,8 @@ font-family:sans-serif;
 h1{
 text-align:center;
 color:white;
-font-size:55px;
-margin-top:40px;
+font-size:8vw;
+margin-top:30px;
 text-shadow:0 0 10px rgba(255,255,255,0.7);
 }
 
@@ -29,14 +32,18 @@ position:absolute;
 top:60%;
 left:50%;
 transform:translate(-50%,-50%);
-width:300px;
-height:300px;
+width:60vw;
+height:60vw;
+max-width:320px;
+max-height:320px;
 }
 
 .petal{
 position:absolute;
-width:120px;
-height:120px;
+width:25vw;
+height:25vw;
+max-width:120px;
+max-height:120px;
 background:radial-gradient(circle,#ff8fb1,#ff4f87);
 border-radius:50%;
 opacity:0;
@@ -47,10 +54,12 @@ box-shadow:0 5px 20px rgba(0,0,0,0.2);
 
 .center{
 position:absolute;
-left:110px;
-top:110px;
-width:80px;
-height:80px;
+left:35%;
+top:35%;
+width:18vw;
+height:18vw;
+max-width:80px;
+max-height:80px;
 background:radial-gradient(circle,#ffd95c,#ffb300);
 border-radius:50%;
 box-shadow:0 0 20px rgba(255,200,0,0.8);
@@ -59,11 +68,13 @@ animation:float 3s ease-in-out infinite;
 
 /* vị trí cánh */
 
-.p1{left:90px;top:0;animation-delay:0.2s,1s}
-.p2{left:180px;top:70px;animation-delay:0.4s,1.2s}
-.p3{left:145px;top:180px;animation-delay:0.6s,1.4s}
-.p4{left:35px;top:180px;animation-delay:0.8s,1.6s}
-.p5{left:0px;top:70px;animation-delay:1s,1.8s}
+.p1{left:30%;top:0}
+.p2{left:60%;top:25%}
+.p3{left:45%;top:60%}
+.p4{left:10%;top:60%}
+.p5{left:0;top:25%}
+
+/* animation */
 
 @keyframes bloom{
 to{
@@ -74,7 +85,7 @@ transform:scale(1);
 
 @keyframes float{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-8px)}
 }
 
 /* lời chúc */
@@ -82,7 +93,7 @@ transform:scale(1);
 .wish{
 position:absolute;
 color:white;
-font-size:20px;
+font-size:4vw;
 font-weight:bold;
 opacity:0;
 white-space:nowrap;
@@ -108,7 +119,7 @@ opacity:0;
 .heart{
 position:absolute;
 color:#ff5c8a;
-font-size:25px;
+font-size:6vw;
 animation:heartfly 6s linear infinite;
 }
 
@@ -129,7 +140,7 @@ opacity:0;
 .sparkle{
 position:absolute;
 color:white;
-font-size:18px;
+font-size:5vw;
 pointer-events:none;
 animation:sparkleMove 4s linear infinite;
 text-shadow:
@@ -174,25 +185,18 @@ opacity:0;
 
 const wishes=[
 
-"Chúc cô ngày 8/3 thật nhiều niềm vui và hạnh phúc 💐",
-"Chúc cô luôn xinh đẹp, rạng rỡ và tràn đầy năng lượng 🌸",
-"Chúc cô luôn mạnh khỏe và gặp thật nhiều may mắn 🍀",
-"Mong cô luôn có thật nhiều nụ cười mỗi ngày 😊",
-"Chúc cô luôn vui vẻ, bình an và hạnh phúc 💖",
-"Chúc cô một ngày 8/3 thật ý nghĩa và đáng nhớ 🌷",
-"Mong mọi điều tốt đẹp nhất sẽ luôn đến với cô ✨",
-"Chúc cô luôn tỏa sáng và gặp nhiều điều tốt lành 🌺",
-"Chúc cô thật nhiều sức khỏe và niềm vui trong cuộc sống 🌼",
-"Mong rằng mỗi ngày của cô đều tràn ngập niềm vui 💕",
-"Chúc cô luôn hạnh phúc và gặp nhiều điều may mắn 🌹",
-"Chúc cô có thật nhiều khoảnh khắc vui vẻ trong ngày đặc biệt này 🎉",
-"Chúc cô luôn giữ được nụ cười tươi và sự ấm áp của mình 🌷",
-"Chúc cô một ngày 8/3 thật ngọt ngào và tràn đầy yêu thương 💝",
-"Mong cô luôn được bao quanh bởi những điều tốt đẹp nhất 🌸"
+"Chúc cô ngày 8/3 thật nhiều niềm vui 💐",
+"Chúc cô luôn xinh đẹp và rạng rỡ 🌸",
+"Chúc cô luôn mạnh khỏe và hạnh phúc 🍀",
+"Mong cô luôn có thật nhiều nụ cười 😊",
+"Chúc cô một ngày 8/3 thật ý nghĩa 🌷",
+"Chúc cô luôn gặp nhiều điều tốt đẹp ✨",
+"Mong cô luôn vui vẻ và bình an 💖",
+"Chúc cô luôn tràn đầy năng lượng 🌺",
+"Chúc cô thật nhiều sức khỏe 🌼",
+"Chúc cô luôn gặp nhiều may mắn 🌹"
 
 ];
-
-/* lời chúc bay */
 
 function createWish(){
 
@@ -202,7 +206,6 @@ text.className="wish";
 text.innerText=wishes[Math.floor(Math.random()*wishes.length)];
 
 text.style.left=Math.random()*window.innerWidth+"px";
-text.style.animationDuration=6+Math.random()*4+"s";
 
 document.body.appendChild(text);
 
@@ -212,8 +215,6 @@ setTimeout(()=>{text.remove()},9000)
 
 setInterval(createWish,2000)
 
-/* tim bay */
-
 function createHeart(){
 
 let heart=document.createElement("div");
@@ -221,7 +222,6 @@ heart.className="heart";
 heart.innerHTML="❤";
 
 heart.style.left=Math.random()*window.innerWidth+"px";
-heart.style.animationDuration=5+Math.random()*3+"s";
 
 document.body.appendChild(heart);
 
@@ -230,8 +230,6 @@ setTimeout(()=>{heart.remove()},8000)
 }
 
 setInterval(createHeart,800)
-
-/* sparkle */
 
 function createSparkle(){
 
@@ -242,7 +240,6 @@ const icons=["✨","⭐","🌟"];
 sparkle.innerHTML=icons[Math.floor(Math.random()*icons.length)];
 
 sparkle.style.left=Math.random()*window.innerWidth+"px";
-sparkle.style.animationDuration=3+Math.random()*3+"s";
 
 document.body.appendChild(sparkle);
 
