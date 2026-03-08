@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Chúc Mừng 8/3</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#f7b2b2,#f6c1d0);
+font-family:sans-serif;
+}
+
+h1{
+text-align:center;
+color:white;
+font-size:55px;
+margin-top:40px;
+text-shadow:0 0 10px rgba(255,255,255,0.7);
+}
+
+/* hoa */
+
+.flower{
+position:absolute;
+top:60%;
+left:50%;
+transform:translate(-50%,-50%);
+width:300px;
+height:300px;
+}
+
+.petal{
+position:absolute;
+width:120px;
+height:120px;
+background:radial-gradient(circle,#ff8fb1,#ff4f87);
+border-radius:50%;
+opacity:0;
+transform:scale(0);
+animation:bloom 1s forwards, float 3s ease-in-out infinite;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.center{
+position:absolute;
+left:110px;
+top:110px;
+width:80px;
+height:80px;
+background:radial-gradient(circle,#ffd95c,#ffb300);
+border-radius:50%;
+box-shadow:0 0 20px rgba(255,200,0,0.8);
+animation:float 3s ease-in-out infinite;
+}
+
+/* vị trí cánh */
+
+.p1{left:90px;top:0;animation-delay:0.2s,1s}
+.p2{left:180px;top:70px;animation-delay:0.4s,1.2s}
+.p3{left:145px;top:180px;animation-delay:0.6s,1.4s}
+.p4{left:35px;top:180px;animation-delay:0.8s,1.6s}
+.p5{left:0px;top:70px;animation-delay:1s,1.8s}
+
+@keyframes bloom{
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+/* lời chúc */
+
+.wish{
+position:absolute;
+color:white;
+font-size:20px;
+font-weight:bold;
+opacity:0;
+white-space:nowrap;
+animation:fly 8s linear infinite;
+text-shadow:0 0 10px white;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{opacity:1}
+80%{opacity:1}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+/* tim */
+
+.heart{
+position:absolute;
+color:#ff5c8a;
+font-size:25px;
+animation:heartfly 6s linear infinite;
+}
+
+@keyframes heartfly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{opacity:1}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+/* sparkle */
+
+.sparkle{
+position:absolute;
+color:white;
+font-size:18px;
+pointer-events:none;
+animation:sparkleMove 4s linear infinite;
+text-shadow:
+0 0 5px white,
+0 0 10px white,
+0 0 20px #ffd1dc,
+0 0 30px #ffd1dc;
+}
+
+@keyframes sparkleMove{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+20%{opacity:1}
+100%{
+transform:translateY(-100px) scale(1.2);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Chúc Mừng Ngày 8/3 🌸</h1>
+
+<div class="flower">
+
+<div class="petal p1"></div>
+<div class="petal p2"></div>
+<div class="petal p3"></div>
+<div class="petal p4"></div>
+<div class="petal p5"></div>
+
+<div class="center"></div>
+
+</div>
+
+<script>
+
+const wishes=[
+
+"Chúc cô ngày 8/3 thật nhiều niềm vui và hạnh phúc 💐",
+"Chúc cô luôn xinh đẹp, rạng rỡ và tràn đầy năng lượng 🌸",
+"Chúc cô luôn mạnh khỏe và gặp thật nhiều may mắn 🍀",
+"Mong cô luôn có thật nhiều nụ cười mỗi ngày 😊",
+"Chúc cô luôn vui vẻ, bình an và hạnh phúc 💖",
+"Chúc cô một ngày 8/3 thật ý nghĩa và đáng nhớ 🌷",
+"Mong mọi điều tốt đẹp nhất sẽ luôn đến với cô ✨",
+"Chúc cô luôn tỏa sáng và gặp nhiều điều tốt lành 🌺",
+"Chúc cô thật nhiều sức khỏe và niềm vui trong cuộc sống 🌼",
+"Mong rằng mỗi ngày của cô đều tràn ngập niềm vui 💕",
+"Chúc cô luôn hạnh phúc và gặp nhiều điều may mắn 🌹",
+"Chúc cô có thật nhiều khoảnh khắc vui vẻ trong ngày đặc biệt này 🎉",
+"Chúc cô luôn giữ được nụ cười tươi và sự ấm áp của mình 🌷",
+"Chúc cô một ngày 8/3 thật ngọt ngào và tràn đầy yêu thương 💝",
+"Mong cô luôn được bao quanh bởi những điều tốt đẹp nhất 🌸"
+
+];
+
+/* lời chúc bay */
+
+function createWish(){
+
+let text=document.createElement("div");
+text.className="wish";
+
+text.innerText=wishes[Math.floor(Math.random()*wishes.length)];
+
+text.style.left=Math.random()*window.innerWidth+"px";
+text.style.animationDuration=6+Math.random()*4+"s";
+
+document.body.appendChild(text);
+
+setTimeout(()=>{text.remove()},9000)
+
+}
+
+setInterval(createWish,2000)
+
+/* tim bay */
+
+function createHeart(){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*window.innerWidth+"px";
+heart.style.animationDuration=5+Math.random()*3+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove()},8000)
+
+}
+
+setInterval(createHeart,800)
+
+/* sparkle */
+
+function createSparkle(){
+
+let sparkle=document.createElement("div");
+sparkle.className="sparkle";
+
+const icons=["✨","⭐","🌟"];
+sparkle.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+sparkle.style.left=Math.random()*window.innerWidth+"px";
+sparkle.style.animationDuration=3+Math.random()*3+"s";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{sparkle.remove()},6000)
+
+}
+
+setInterval(createSparkle,300)
+
+</script>
+
+</body>
+</html>
